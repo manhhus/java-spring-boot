@@ -13,7 +13,7 @@
 		action="${ pageContext.request.contextPath }/upload-hello"
 		enctype="multipart/form-data"
 		method="POST" >
-		<input type="file" name="upload_file" />
+		<input type="file" name="upload_file" multiple/>
 		<button>Submit</button>
 	</form>
 </body>

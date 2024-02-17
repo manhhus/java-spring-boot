@@ -1,6 +1,7 @@
 package com.example.demo.utilities;
 
 import java.io.File;
+
 import java.nio.file.Files;
 import java.util.UUID;
 
@@ -9,8 +10,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UploadFileUtils {
-	public File handleUploadFile(MultipartFile uploadedFile) {
-		String folderPath = "E:\\Spring\\demo\\src\\main\\webapp\\storage";
+	public File handleUploadFile(
+		MultipartFile uploadedFile
+	) {
+		String folderPath = "C:\\Users\\Asus VivoBook\\git\\repository\\demo\\src\\main\\webapp\\storage";
 		File myUploadFolder = new File(folderPath);
 		
 		// Kiểm tra thư mục lưu trữ file có tồn tại? nếu ko thì tạo mới thư mục

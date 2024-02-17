@@ -5,6 +5,8 @@ import com.example.demo.utilities.UploadFileUtils;
 
 import jakarta.servlet.ServletContext;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,10 +37,12 @@ public class HelloController {
 
 	@PostMapping("/upload-hello")
 	public String uploadFileHello(
-		@RequestParam("upload_file") MultipartFile uploadedFile
+		@RequestParam("upload_file") List<MultipartFile> uploadedFiles
 	) {
-		this.uploadUtil.handleUploadFile(uploadedFile);
-		System.out.println(this.app.getRealPath(""));
+		for (MultipartFile uploadedFile : uploadedFiles) {
+			this.uploadUtil.handleUploadFile(uploadedFile);
+			System.out.println(this.app.getRealPath(""));
+		}
 		return "redirect:/hello";
 	}
 }
