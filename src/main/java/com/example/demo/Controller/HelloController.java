@@ -1,8 +1,5 @@
 package com.example.demo.Controller;
 
-import com.example.demo.entity.User;
-import com.example.demo.utilities.UploadFileUtils;
-
 import jakarta.servlet.ServletContext;
 
 import java.util.List;
@@ -13,6 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.example.demo.entity.User;
+import com.example.demo.utilities.UploadFileUtils;
+
 import org.springframework.ui.Model;
 
 @Controller
