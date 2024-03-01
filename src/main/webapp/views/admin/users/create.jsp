@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <title>Insert title here</title>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/css/bootstrap.min.css" ></link>
 </head>
@@ -27,13 +28,14 @@
 	</nav>
 
 	<div class="mt-5 col-10 offset-1">
-		<form
+		<form:form
+			modelAttribute="user"
 			method="POST"
 			action="${ pageContext.request.contextPath }/admin/users/store">
 
 			<div class="form-group">
-				<label for="name">Name</label>
-			    <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+				<label for="username">Name</label>
+			    <input type="text" class="form-control" id="username" name="username" autocomplete="off">
 			    <small id="name_error" class="form-text text-danger"></small>
 			</div>
 			<div class="form-group">
@@ -46,45 +48,27 @@
 			    <input type="password" class="form-control" id="password" name="password" autocomplete="off">
 			    <small id="password_error" class="form-text text-danger"></small>
 			</div>
+			
 			<div class="form-group">
-				<label for="password_confirm">Password Confirm</label>
-			    <input type="password" class="form-control" id="password_confirm" name="password_confirm" autocomplete="off">
-			    <small id="password_confirm_error" class="form-text text-danger"></small>
-			</div>
-			<div class="form-group">
-				<label for="dob">Date of Birth</label>
-			    <input type="text" class="form-control" id="dob" name="dob" autocomplete="off">
-			    <small id="dob_error" class="form-text text-danger"></small>
-			</div>
-			<div class="form-group">
-				<label for="role">Role</label>
-				<select name="role" id="role" class="form-control" required>
+				<label for="admin">Role</label>
+				<select name="admin" id="admin" class="form-control" required>
 					<option selected disabled>Choose</option>
-					<option value="1">User</option>
-					<option value="2">Admin</option>
+					<option value="0">User</option>
+					<option value="1">Admin</option>
 				</select>
 			    <small id="role_error" class="form-text text-danger"></small>
 			</div>
 			<div class="form-group">
-				<label for="avatar">Image</label>
-			    <input type="file" class="form-control" id="avatar" name="avatar">
+				<label for="photo">Image</label>
+			    <input type="file" class="form-control" id="photo" name="photo">
 			    <small id="avatar_error" class="form-text text-danger"></small>
 			</div>
 			<div class="form-group">
-				<label for="gender">Gender</label>
-				<select name="gender" id="gender" class="form-control" required>
-					<option selected disabled>Choose</option>
-					<option value="1">Male</option>
-					<option value="2">Female</option>
-				</select>
-			    <small id="gender_error" class="form-text text-danger"></small>
-			</div>
-			<div class="form-group">
 				<label for="status">Status</label>
-				<select name="status" id="status" class="form-control" required>
+				<select name="activated" id="activated" class="form-control" required>
 					<option selected disabled>Choose</option>
 					<option value="1">Active</option>
-					<option value="2">Inactive</option>
+					<option value="0">Inactive</option>
 				</select>
 			    <small id="status_error" class="form-text text-danger"></small>
 			</div>
@@ -92,7 +76,7 @@
 				<button class="btn btn-primary">Submit</button>
 				<button type="reset" class="btn btn-danger">Clear</button>
 			</div>
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>

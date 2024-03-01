@@ -90,10 +90,10 @@
 						<td>
 							<a
 								class="btn btn-primary"
-								href="${ pageContext.request.contextPath }/admin/users/edit/1">Update</a>
+								href="${ pageContext.request.contextPath }/admin/users/edit/${ user.id }">Update</a>
 						</td>
 						<td>
-							<form action="${ pageContext.request.contextPath }/admin/users/delete/1" method="POST">
+							<form action="${ pageContext.request.contextPath }/admin/users/delete/${ user.id }" method="POST">
 								<button class="btn btn-danger">Delete</button>
 							</form>
 						</td>
@@ -104,9 +104,9 @@
 		
 		<div>
 			<ul class="pagination">
-				<c:forEach begin="0" end="${ pageData.totalPages - 1 }" varStatus="page">
+				<c:forEach begin="0" end="${ pageData.totalPages - 2 }" varStatus="page">
 					<li class="page-item">
-						<a class="page-link">${ page.index + 1 }</a>
+						<a class="page-link" href="${pageContext.request.contextPath}/admin/users?page=${page.index + 1}">${page.index + 1}</a>
 					</li>
 				</c:forEach>
 			</ul>

@@ -33,12 +33,6 @@ public class UserDTO {
 	@NotBlank
 	private String password;
 	
-//	@NotNull
-//	@NotBlank
-//	private String passwordConfirm;
-	
-	@NotNull
-	@NotBlank
 	private String photo;
 	
 	@NotNull

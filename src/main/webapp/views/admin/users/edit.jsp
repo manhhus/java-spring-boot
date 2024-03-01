@@ -31,7 +31,7 @@
 		<form:form
 			modelAttribute="user"
 			method="POST"
-			action="${ pageContext.request.contextPath }/admin/users/update/1">
+			action="${ pageContext.request.contextPath }/admin/users/update/${user.id}">
 			<input type="hidden" name="_method" value="put" />
 			<div class="form-group mt-3">
 				<label for="name">Name</label>
@@ -44,9 +44,12 @@
 				<form:errors path="email" element="span" cssClass="text-danger" />
 			</div>
 			<div class="form-group mt-3">
-				<label for="password">Password</label>
-				<form:password path="password" value="*********" name="password" class="form-control" readonly="true"/>
-				<form:errors path="password" element="span" cssClass="text-danger" />
+			    <label for="password">Password</label>
+			    
+			    <form:hidden path="password" />
+			    
+			    <input type="password" value="*********" class="form-control" readonly/>
+			    <form:errors path="password" element="span" cssClass="text-danger" />
 			</div>
 			<div class="form-group mt-3">
 				<label for="admin">Tài khoản</label>

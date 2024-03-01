@@ -57,7 +57,7 @@ public class UserController {
 			Sort.by(Direction.ASC, sortField):
 			Sort.by(Direction.DESC, sortField);
 
-		int page = pageParam == null ? 0 : Integer.parseInt(pageParam);
+		int page = (pageParam == null || pageParam.equals("1")) ? 0 : Integer.parseInt(pageParam);
 		int limit = limitParam == null ? 10 : Integer.parseInt(limitParam);
 		Pageable pageable = PageRequest.of(page, limit, sort);
 		
