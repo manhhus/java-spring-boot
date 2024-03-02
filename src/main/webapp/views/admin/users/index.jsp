@@ -25,6 +25,13 @@
 	      </li>
 	    </ul>
 	  </div>
+	  
+	  <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+        </li>
+    </ul>
+    
 	</nav>
 
 	<div class="col-10 offset-1 mt-5 border border-primary p-2">
