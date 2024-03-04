@@ -18,29 +18,30 @@ public class LoginController {
 	@Autowired
 	private UserRepository userRepo;
 	
-	@Autowired
-	private HttpServletRequest request;
+//	@Autowired
+//	private HttpServletRequest request;
 
 	@GetMapping("/login")
 	public String getLoginForm() {
 		return "/auth/login";
 	}
 	
-	@PostMapping("/login")
+	@PostMapping("/form-login")
 	public String login(
 		@RequestParam("email") String email,
-		@RequestParam("password") String password
+		@RequestParam("password") String password,
+		HttpServletRequest request
 	) {
 		User entity = this.userRepo.findByEmail(email);
 		HttpSession session = request.getSession();
 		if (entity == null) {
-			session.setAttribute("error", "Sai email hoặc mật khẩu");
+			session.setAttribute("error", "Error email or password");
 			return "redirect:/login";
 		}
 
 		boolean checkPwd = HashUtil.verify(password, entity.getPassword());
 		if (!checkPwd) {
-			session.setAttribute("error", "Sai email hoặc mật khẩu");
+			session.setAttribute("error", "Error email or password");
 			return "redirect:/login";
 		}
 		

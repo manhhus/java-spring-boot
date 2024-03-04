@@ -35,8 +35,8 @@ import com.example.demo.utilities.HashUtil;
 @RequestMapping(value="/admin/users")
 public class UserController {
 	
-	@Autowired
-	private HttpServletRequest request;
+//	@Autowired
+//	private HttpServletRequest request;
 	
 	@Autowired
 	private UserMapper mapper;
@@ -45,7 +45,7 @@ public class UserController {
 	private UserRepository userRepo;
 
 	@GetMapping()
-	public String index(Model model)
+	public String index(Model model,HttpServletRequest request)
 	{
 		String sortBy = request.getParameter("sort_by");
 		String sortDirection = request.getParameter("sort_direction");
@@ -92,7 +92,7 @@ public class UserController {
 		BindingResult result
 	) {
 		if (result.hasErrors()) {
-			// do something
+
 			return "admin/users/create";
 		} else {
 			User entity = this.mapper.convertToEntity(user);
@@ -122,7 +122,6 @@ public class UserController {
 		BindingResult result
 	) {
 		if (result.hasErrors()) {
-//			return "redirect:/admin/users/edit/1";
 			model.addAttribute("errors", result.getAllErrors());
 			model.addAttribute("user", user);
 			return "admin/users/edit";

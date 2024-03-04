@@ -29,6 +29,10 @@
 				<div class="mt-3">
 					<button class="btn btn-primary">Login</button>
 				</div>
+				<div class="mt-3">
+		            <a href="${ pageContext.request.contextPath }/oauth2/authorization/google">Continue with Google</a>
+		            <a href="${ pageContext.request.contextPath }/oauth2/authorization/github">Continue with GitHub</a>
+		    	</div>
 			</form>
 		</div>
 	</div>
