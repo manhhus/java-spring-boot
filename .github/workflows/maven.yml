@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Java CI with Maven and MySQL
 
 on:
   push:
@@ -29,6 +29,17 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+
+    # Connect to MySQL Database
+    - name: Connect to MySQL Database
+      env:
+        MYSQL_HOST: localhost
+        MYSQL_PORT: 3306
+        MYSQL_USER: root
+        MYSQL_PASSWORD: ''
+        MYSQL_DATABASE: studentspring
+      run: |
+        mysql -h $MYSQL_HOST -P $MYSQL_PORT -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE -e "SELECT * FROM your_table;"
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
