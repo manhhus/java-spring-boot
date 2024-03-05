@@ -25,8 +25,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	            .anyRequest().authenticated()
 	        .and()
 	        .formLogin()
-            	.loginPage("/login")
-            	.permitAll()
+	        	.permitAll()
+            	.loginPage("/login") 
+            	.usernameParameter("email")
+            	.passwordParameter("password")
+            	.loginProcessingUrl("/login")
+            	.defaultSuccessUrl("/admin/users")
             .and()
 	        .oauth2Login()
 	        	.loginPage("/auth-login")
@@ -40,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	       .logout()
            .logoutSuccessUrl("/login")
            .permitAll();
-		   System.out.println("configure");
+		   
 
 	}
 

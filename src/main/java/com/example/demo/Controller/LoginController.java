@@ -26,7 +26,7 @@ public class LoginController {
 		return "/auth/login";
 	}
 	
-	@PostMapping("/form-login")
+	@PostMapping("/login")
 	public String login(
 		@RequestParam("email") String email,
 		@RequestParam("password") String password,
