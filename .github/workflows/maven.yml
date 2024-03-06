@@ -33,14 +33,13 @@ jobs:
     # Connect to MySQL Database
     - name: Connect to MySQL Database
       env:
-        MYSQL_HOST: localhost
+        MYSQL_HOST: 3.27.143.106
         MYSQL_PORT: 3306
         MYSQL_USER: root
-        MYSQL_PASSWORD: ${{ secrets.RootPassword }}
+        MYSQL_PASSWORD: Manh13062002?
         MYSQL_DATABASE: studentspring
       run: |
-        mysql -h $MYSQL_HOST -P $MYSQL_PORT -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE -e "SELECT * FROM your_table;"
-
+        mysql -h $MYSQL_HOST -P $MYSQL_PORT -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE -e "SELECT * FROM users;"
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
