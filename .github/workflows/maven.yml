@@ -29,7 +29,7 @@ jobs:
     - name: Install MySQL Connector
       run: |
         sudo apt-get update
-        sudo apt-get install -y libmysql-java
+        sudo apt install mysql-server
     - name: Check connection status to RDS
       run: |
         # You'll need to replace <YOUR_RDS_ENDPOINT>, <YOUR_DB_USERNAME>, <YOUR_DB_PASSWORD>, and <YOUR_DB_NAME> with your actual RDS details
